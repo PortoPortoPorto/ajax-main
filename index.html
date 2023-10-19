@@ -48,6 +48,35 @@
 
 		xhr.send(); 
 	}
+
+	fuction loadUsers () {
+		var xhr = new XMLHttpRequest(); 
+
+		xhr.onload = function() {
+			console.log('onloading users');
+			if (this.status === 200) {
+				var users = JSON.parse(this.responseText);
+				
+				var output = ''; 
+				users.forEach(user => {
+					output += '<ul>' + 
+						'<li>ID: '+user.id+' </li>' +
+						'<li>Name: '+user.name+' </li>' +
+						'<li>email: '+user.email+' </li>' + 
+				
+						'</ul>'; 
+				});
+				document.querySelector("#user").innerHTML = output;  
+			}
+		}
+
+		xhr.onerror = function() {
+			console.log('request error'); 
+		}
+
+		xhr.send();
+	}
+
 </script>
 </body>
 </html>
