@@ -51,6 +51,7 @@
 
 	fuction loadUsers () {
 		var xhr = new XMLHttpRequest(); 
+		xhr.open('GET', 'users.json', true); 
 
 		xhr.onload = function() {
 			console.log('onloading users');
