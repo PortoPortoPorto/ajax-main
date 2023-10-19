@@ -24,7 +24,19 @@
 				if(this.status === 200) {
 					var users = JSON.parse(this.responseText); 
 					
-					console.log(users); 	
+					var output = ''; 
+					users.forEach(user => {
+						output += 
+							'<div class = "user">' +
+							'<img src= "'+user.avatar_url+'" width = 70px height 70px>' +
+							'<ul>' +
+							'<li>ID:'+user.id+'</li>' +
+							'<li>Login:'+user.login+'</li>' +
+							'</ul>' +
+							'</div>' + 
+					});	
+
+					document.querySelector('#users').innerHTML = output; 
 				}
 			}
 			xhr.send(); 
