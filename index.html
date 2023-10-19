@@ -21,15 +21,15 @@
 	document.querySelector('#button2').addEventListener('click', loadUsers); 
 
 	function loadUser () {
-		const xhr = new XMLHttpRequest(); 
+		var xhr = new XMLHttpRequest(); 
 		xhr.open('GET', 'user.json', true); 
 
 		xhr.onload = function() {
 			console.log('onloading user');
 			if (this.status === 200) {
-			const user = JSON.parse(this.responseText);
+			var user = JSON.parse(this.responseText);
 			
-			const output = ''; 
+			var output = ''; 
 
 			output += '<ul>' + 
 				'<li>ID: '+user.id+' </li>'
